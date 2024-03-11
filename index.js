@@ -15,7 +15,8 @@ inputForm.addEventListener('submit', function(event) {
   const input = inputField.value;
 
   // Clear input field
-  inputField.value = '';
+  inputField.value = "";
+  document.getElementById('submit-button').disabled = true; 
   currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
 
   // Add user input to conversation
@@ -53,9 +54,9 @@ function addAIMessage(){
 }
 
 function success() {
-    if(document.getElementById("input-field").value==="") { 
-           document.getElementById('submit-button').disabled = true; 
-       } else { 
-           document.getElementById('submit-button').disabled = false;
-       }
-   }
+  if(document.getElementById("input-field").value==="") { 
+      document.getElementById('submit-button').disabled = true; 
+  } else { 
+      document.getElementById('submit-button').disabled = false;
+  }
+}
