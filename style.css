@@ -23,9 +23,12 @@ body {
   #header {
     background: linear-gradient(45deg, blue, red);
     color: #ffffff;
-    padding: 20px;
-    font-size: 1em;
+    padding: 10px;
+    font-size: 1.2rem;
     font-weight: bold;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
   }
 
   message-container {
@@ -148,6 +151,11 @@ body {
 
   #submit-button:disabled{
     opacity: 0.2;
+  }
+
+  .headerImg{
+    width: 30%;
+    
   }
 
   /* width */
