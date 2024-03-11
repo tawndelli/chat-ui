@@ -28,14 +28,13 @@ inputForm.addEventListener('submit', function(event) {
   message.scrollIntoView({behavior: "smooth"});
 
   // Get chatbot response
-  fetch('http://localhost:8000/prompt/', {
+  fetch('https://rights-sichvtpofq-uc.a.run.app/prompt/', {
     method: "POST",
     body: JSON.stringify({
         query_str: input
     }),
     headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "Access-Control-Allow-Origin": "http://localhost:5000"
       }
   }).then((response) => response.json())
   .then((json) => {
