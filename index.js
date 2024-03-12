@@ -9,7 +9,7 @@ var response = '';
 
 document.addEventListener('readystatechange', (event)=>{
   if(event.target.readyState === "interactive"){
-    fetch('https://rights-sichvtpofq-uc.a.run.app/init/', {
+    fetch('https://rights-sichvtpofq-uc.a.run.app/startup/', {
     // fetch('http://localhost:8000/startup', {
       method: "GET",
       headers: {
