@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot</title>
+    <title>Blockr!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,16 +13,23 @@
             <h1>Blockr! Assistant</h1>
             <img class="headerImg" src="img/stop.png" alt="">
         </div>
+        <div id="loadingDiv" class="loadingDiv">
+          <p>Initializing...</p>
+        </div>
+        <div id="errorDiv" class="errorDiv">
+          <img src="img/error.png" class="errorImg" alt="">
+          <p>Sorry, the service is unavailable at this time. Please try again.</p>
+        </div>
         <div id="chatbot">
             <div id="conversation">
               <div class="chatbot-message">
                 <img class="botImg" src="img/court.png" />
-                <p class="chatbot-text">Hello! 👋 I'm here to answer any question you may have about the texas penal and criminal codes, or the US Constitution. How can I help?</p>
+                <p class="chatbot-text">Hello! 👋 I'm here to answer any questions you may have about the Texas penal and criminal codes, or the US Constitution. How can I help?</p>
               </div>
             </div>
             <form id="input-form">
               <message-container>
-                <input id="input-field" onkeyup="success()" type="text" placeholder="Type your message here">
+                <input id="input-field" onchange="success()" type="text" placeholder="Type your message here">
                 <button id="submit-button" class="submitBtn" type="submit" disabled>
                   <img class="send-icon" src="img/send-message.png" alt="">
                 </button>
@@ -30,7 +37,11 @@
                 
             </form>
         </div>  
-
+        <div id="micDiv" class="micDiv">
+          <button class="micButton" id="mic">
+            <img id="micImage" src="img/mic.png" alt="">
+          </button>
+        </div>
     </div>
 
     <script src="index.js"></script>
