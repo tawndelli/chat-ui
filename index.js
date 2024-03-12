@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   recognition.onend = ()=>{
     recognizing = false;
     
-    inputField.focus();
     inputField.onchange();
+    submitButton.focus();
     submitButton.click();
   }
 
