@@ -85,7 +85,7 @@ inputForm.addEventListener('submit', function(event) {
 
   // Clear input field
   inputField.value = "";
- submitButton.disabled = true; 
+  submitButton.disabled = true; 
   currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
 
   // Add user input to conversation
@@ -94,10 +94,13 @@ inputForm.addEventListener('submit', function(event) {
   message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${input}</p><img class="userImg" src="img/user.png" />`;
   conversation.appendChild(message);
 
+  addAIMessage();
+
   message.scrollIntoView({behavior: "smooth"});
 
   // Get chatbot response
   fetch('https://rights-sichvtpofq-uc.a.run.app/prompt/', {
+  // fetch('http://localhost:8000/prompt/', {
     method: "POST",
     body: JSON.stringify({
         query_str: input
@@ -108,7 +111,7 @@ inputForm.addEventListener('submit', function(event) {
   }).then((response) => response.json())
   .then((json) => {
     response = json;
-    addAIMessage();
+    addAIMessage(response);
   });
 });
 
@@ -119,13 +122,19 @@ function showError(){
   document.getElementById('loadingDiv').style.display = 'none';
 }
 
-function addAIMessage(){
-     // Add chatbot response to conversation
-  message = document.createElement('div');
-  message.classList.add('chatbot-message','chatbot');
-  message.innerHTML = `<img class="botImg" src="img/court.png" /><p class="chatbot-text" sentTime="${currentTime}">${response}</p>`;
-  conversation.appendChild(message);
-  message.scrollIntoView({behavior: "smooth"});
+function addAIMessage(text=""){
+  // Add chatbot response to conversation
+  if(text === ""){
+    message = document.createElement('div');
+    message.classList.add('chatbot-message','chatbot');
+    message.innerHTML = `<img class="botImg" src="img/court.png" /><p class="chatbot-text" sentTime="${currentTime}">...</p>`;
+    conversation.appendChild(message);
+    message.scrollIntoView({behavior: "smooth"});
+  }
+  else{
+    aiMessages = document.querySelectorAll(".chatbot-text")
+    aiMessages[aiMessages.length-1].innerHTML = `${text}`;
+  }
 }
 
 function success() {

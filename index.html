@@ -28,8 +28,8 @@
               </div>
             </div>
             <form id="input-form">
-              <message-container>
-                <input id="input-field" onchange="success()" type="text" placeholder="Type your message here">
+              <div class="message-container">
+                <input id="input-field" onchange="success()" oninput="success()" type="text" placeholder="Type your message here">
                 <button id="submit-button" class="submitBtn" type="submit" disabled>
                   <img class="send-icon" src="img/send-message.png" alt="">
                 </button>
